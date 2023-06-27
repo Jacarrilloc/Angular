@@ -6,10 +6,9 @@
       <p>{{mensaje}}</p>
       <app-persona></app-persona>
 
-<label>Titulo Persona</label>
-<input type="text" class="form-control"
- (input)="modificarTitulo($event)">
- {{titulo}}
+      <label>Titulo Persona</label>
+      <input type="text" class="form-control" [(ngModel)]="titulo">
+      {{titulo}}
     </div>
   </div>
 </div>
