@@ -7,7 +7,7 @@ import { Component } from "@angular/core";
 })
 export class PersonasComponent{
     desabilitar = false;
-    mensaje = "No se ha agregado Ninguna Persona";
+    mensaje = "";
     titulo = "Licenciado";
     mostrar = false;
 
