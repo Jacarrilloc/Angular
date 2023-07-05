@@ -1,6 +1,7 @@
-import { Component, ElementRef, EventEmitter ,Output, ViewChild } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { Persona } from '../persona.model';
 import { LoggingService } from '../LoggingService.service';
+import { PersonasService } from '../personas.service';
 
 @Component({
   selector: 'app-formulario',
@@ -9,19 +10,19 @@ import { LoggingService } from '../LoggingService.service';
 })
 export class FormularioComponent {
 
-  @Output() personaCreada = new EventEmitter<Persona>();
 
   @ViewChild('nombreInput') nombreInput:   ElementRef;
   @ViewChild('apellidoInput') apellidoInput: ElementRef;
 
-  constructor(private loggingService: LoggingService){
+  constructor(private loggingService: LoggingService,
+    private personaService: PersonasService){
 
   }
 
-  agregarPersona(){
+  onAgregarPersona(){
     let persona1 = new Persona(this.nombreInput.nativeElement.value,this.apellidoInput.nativeElement.value);
-    this.loggingService.enviarMensajeAConsola("Enviamos Persona: " + persona1.nombre + " Apellido: " + persona1.apellido);
-    this.personaCreada.emit(persona1);
+    this.loggingService.enviarMensajeAConsola("Enviamos persona con Nombre: " + persona1.nombre)
+    this.personaService.agregarPersona(persona1);
   }
 
 }
