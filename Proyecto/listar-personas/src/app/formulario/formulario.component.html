@@ -1,30 +1,19 @@
-<form class="row">
-    <div class="form-group col-md-2">
-      <label for="nombre" class="sr-only">Nombre</label>
-      <input
-        type="text"
-        name="nombre"
-        id="nombre"
-        placeholder="Nombre"
-        class="form-control"
-        #nombreInput
-      />
-    </div>
+<form class="item">
+  <input
+    type="text"
+    name="nombre"
+    id="nombre"
+    placeholder="Nombre"
+    [(ngModel)]="nombreInput"
+  />
 
-    <div class="form-group col-md-2">
-      <label for="apellido" class="sr-only">Apellido</label>
-      <input
-        type="text"
-        name="apellido"
-        id="apellido"
-        placeholder="Apellido"
-        class="form-control"
-        #apellidoInput
-      />
-    </div>
-    <div class="col">
-      <button type="submit" class="btn btn-primary" (click)="onAgregarPersona()">
-        Agregar
-      </button>
-    </div>
-  </form>
+  <input
+    type="text"
+    name="apellido"
+    id="apellido"
+    placeholder="Apellido"
+    [(ngModel)]="apellidoInput"
+  />
+
+  <button type="submit" (click)="onAgregarPersona()">+</button>
+</form>

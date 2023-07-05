@@ -10,9 +10,9 @@ import { PersonasService } from '../personas.service';
 })
 export class FormularioComponent {
 
+  nombreInput: string;
+  apellidoInput: string;
 
-  @ViewChild('nombreInput') nombreInput:   ElementRef;
-  @ViewChild('apellidoInput') apellidoInput: ElementRef;
 
   constructor(private loggingService: LoggingService,
     private personaService: PersonasService){
@@ -22,7 +22,7 @@ export class FormularioComponent {
   }
 
   onAgregarPersona(){
-    let persona1 = new Persona(this.nombreInput.nativeElement.value,this.apellidoInput.nativeElement.value);
+    let persona1 = new Persona(this.nombreInput,this.apellidoInput);
     //this.loggingService.enviarMensajeAConsola("Enviamos persona con Nombre: " + persona1.nombre)
     this.personaService.agregarPersona(persona1);
   }
