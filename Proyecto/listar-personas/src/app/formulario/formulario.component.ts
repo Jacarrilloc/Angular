@@ -16,7 +16,9 @@ export class FormularioComponent {
 
   constructor(private loggingService: LoggingService,
     private personaService: PersonasService){
-
+      this.personaService.saludar.subscribe(
+        (indice: number) => alert("El indice es: " + (indice+1))
+      );
   }
 
   onAgregarPersona(){
