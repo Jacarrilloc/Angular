@@ -21,7 +21,7 @@ export class FormularioComponent {
 
   onAgregarPersona(){
     let persona1 = new Persona(this.nombreInput.nativeElement.value,this.apellidoInput.nativeElement.value);
-    this.loggingService.enviarMensajeAConsola("Enviamos persona con Nombre: " + persona1.nombre)
+    //this.loggingService.enviarMensajeAConsola("Enviamos persona con Nombre: " + persona1.nombre)
     this.personaService.agregarPersona(persona1);
   }
 
