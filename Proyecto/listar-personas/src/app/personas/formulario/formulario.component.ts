@@ -1,7 +1,7 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
-import { Persona } from '../persona.model';
-import { LoggingService } from '../LoggingService.service';
-import { PersonasService } from '../personas.service';
+import { Component, ElementRef} from '@angular/core';
+import { Persona } from '../../persona.model';
+import { LoggingService } from '../../LoggingService.service';
+import { PersonasService } from '../../personas.service';
 
 @Component({
   selector: 'app-formulario',
