@@ -2,6 +2,7 @@ import { Component, ElementRef} from '@angular/core';
 import { Persona } from '../../persona.model';
 import { LoggingService } from '../../LoggingService.service';
 import { PersonasService } from '../../personas.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-formulario',
@@ -15,16 +16,17 @@ export class FormularioComponent {
 
 
   constructor(private loggingService: LoggingService,
-    private personaService: PersonasService){
+    private personaService: PersonasService,
+    private router: Router){
       this.personaService.saludar.subscribe(
         (indice: number) => alert("El indice es: " + (indice+1))
       );
   }
 
-  onAgregarPersona(){
+  onGuardarPersona(){
     let persona1 = new Persona(this.nombreInput,this.apellidoInput);
-    //this.loggingService.enviarMensajeAConsola("Enviamos persona con Nombre: " + persona1.nombre)
     this.personaService.agregarPersona(persona1);
+    this.router.navigate(['personas']);
   }
 
 }
