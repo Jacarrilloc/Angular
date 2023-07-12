@@ -1,20 +1,35 @@
 import { EventEmitter, Injectable } from "@angular/core";
 import { LoggingService } from "./LoggingService.service";
 import { Persona } from "./persona.model";
+import { DataServices } from "./data.services";
 
 @Injectable()
 export class PersonasService{
-    personas: Persona[] = [new Persona("Julian","Carrillo"), new Persona("Juan","Perez"), new Persona("Karla","Lara")];
-
-    constructor(private LoggingService: LoggingService){
-
-    }
+    personas: Persona[] = [];
 
     saludar = new EventEmitter<number>();
 
+    constructor(private LoggingService: LoggingService,
+      private dataServices: DataServices
+      ){
+
+    }
+
+    obtenerPersonas(){
+      return this.dataServices.cargarPersonas();
+    }
+
+    setPersonas(personas: Persona[]){
+      this.personas = personas;
+    }
+
     agregarPersona(persona: Persona){
       this.LoggingService.enviarMensajeAConsola("Agregamos: " + persona.nombre)
+      if(this.personas == null){
+        this.personas = [];
+      }
         this.personas.push(persona);
+        this.dataServices.guardarPersonas(this.personas);
       }
 
       encontrarPersona(index: number){
