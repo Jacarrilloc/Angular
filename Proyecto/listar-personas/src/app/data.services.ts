@@ -23,5 +23,16 @@ export class DataServices{
             }
           );
       }
+
+      modificarPersona(index: number, persona: Persona){
+        let url: string;
+        url = 'https://listado-personas-9254a-default-rtdb.firebaseio.com/datos/'+ index + '.json';
+        this.httpClient.put(url,persona)
+        .subscribe(
+            response => console.log("Resultado: " + response)
+        ,
+        error => console.log("Error: " + error)
+        )
+      }
       
 }
