@@ -18,9 +18,9 @@ export class LoginService {
                         token =>{
                         this.token = token;
                         this.router.navigate(['/']);
-                        }
+                    }
             )
-    }
+        }
     )
   } 
 
