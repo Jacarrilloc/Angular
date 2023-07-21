@@ -6,7 +6,7 @@ import 'firebase/compat/auth'
 @Injectable()
 export class LoginService {
 
-    token: string
+    token: string | null;
 
     constructor(private router: Router) { }
 
@@ -34,7 +34,7 @@ export class LoginService {
 
   logout(){
     firebase.auth().signOut().then( () => {
-        this.token = '';
+        this.token = null;
         this.router.navigate(['login']);
     } ).catch(error => console.log("Error LogOut: " + error))
   }
